@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout">
+</form>
+
+<h1>User Profile</h1>
+<div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>
+<div th:if="${successMessage}" th:text="${successMessage}" style="color: green;"></div>
+<div>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>Email: <span th:text="${user.email}"></span></p>
+    <p>ID: <span th:text="${user.id}"></span></p> <!--- добавь  ID  -->
+</div>
+<p>
+    <a th:href="@{/user/user_edit}">
+        <button type="button">Edit Profile</button>
+    </a>
+</p>
+</body>
+</html>
