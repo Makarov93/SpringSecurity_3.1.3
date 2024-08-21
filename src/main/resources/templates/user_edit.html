@@ -14,10 +14,10 @@
 <div th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></div>
 <div th:if="${successMessage}" th:text="${successMessage}" style="color: green;"></div>
 <form th:action="@{/update}" method="post" th:object="${user}">
-    <input type="hidden" th:field="*{id}" />
-    <p>Username: <input type="text" th:field="*{username}" /></p>
-    <p>Email: <input type="email" th:field="*{email}" /></p>
-    <p>Password: <input type="password" th:field="*{password}" /></p>
+    <input th:field="*{id}" type="hidden"/>
+    <p>Username: <input th:field="*{username}" type="text"/></p>
+    <p>Email: <input th:field="*{email}" type="email"/></p>
+    <p>Password: <input th:field="*{password}" type="password"/></p>
     <p><input type="submit" value="Save Changes"/></p>
     <a th:href="@{/user}">Back to User</a>
 </form>

@@ -1,7 +1,7 @@
 package makarov.springsecurity.controller;
 
 import makarov.springsecurity.model.User;
-import makarov.springsecurity.service.UserServiceImpl;
+import makarov.springsecurity.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +11,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    private final UserServiceImpl userService;
 
-    public AdminController(UserServiceImpl userService) {
+    private final UserService userService;
+
+    public AdminController(UserService userService) {
         this.userService = userService;
     }
 

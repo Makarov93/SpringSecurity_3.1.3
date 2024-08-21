@@ -10,12 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserServiceImpl userService;
-    LoginUserHandler loginUserHandler;
+    private LoginUserHandler loginUserHandler;
 
     public WebSecurityConfig(UserServiceImpl userService, LoginUserHandler loginUserHandler) {
         this.userService = userService;
