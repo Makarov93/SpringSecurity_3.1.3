@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .successHandler(successHandler()) // Используем кастомный SuccessHandler
+                .successHandler(successHandler())
                 .permitAll()
                 .and()
                 .logout()

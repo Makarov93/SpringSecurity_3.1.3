@@ -19,6 +19,9 @@ public class DbInit implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
+
+        createRoles();
+
         if (entityManager.createQuery("SELECT u FROM User u WHERE u.username = 'admin'", User.class).getResultList().isEmpty()) {
 
             User admin = new User();
@@ -39,5 +42,17 @@ public class DbInit implements CommandLineRunner {
         }
 
         entityManager.flush();
+    }
+
+    private void createRoles() {
+        Role adminRole = new Role();
+        adminRole.setId(1L);
+        adminRole.setName("ROLE_ADMIN");
+        entityManager.persist(adminRole);
+
+        Role userRole = new Role();
+        userRole.setId(2L);
+        userRole.setName("ROLE_USER");
+        entityManager.persist(userRole);
     }
 }

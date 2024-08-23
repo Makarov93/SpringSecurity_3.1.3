@@ -3,7 +3,6 @@ package makarov.springsecurity.controller;
 import makarov.springsecurity.model.User;
 import makarov.springsecurity.service.UserService;
 import makarov.springsecurity.service.UserServiceImpl;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -57,7 +56,6 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public String updateUser(@ModelAttribute("user") User formUser, Principal principal, Model model) {
         String currentUsername = principal.getName();
         User existingUser = userService.getUserById(formUser.getId());
